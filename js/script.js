@@ -5,10 +5,19 @@ $(document).ready(function () {
     { top: '-7%', left: '12%' },
     { top: '61%', left: '25%' },
     { top: '52%', left: '70%' },
-    { top: '26.5%', left: '10.5%' },
-    { top: '6.5%', left: '37%' },
-    { top: '21.5%', left: '74%' },
+    { top: '26%', left: '10%' },
+    { top: '6%', left: '37%' },
+    { top: '21%', left: '74%' },
   ]
+
+  if(window.innerWidth < 500){
+
+    position.map(pos => {
+      pos.top = parseInt(pos.top) + 7 + '%'
+      pos.left = parseInt(pos.left) - 10 + '%'
+    })
+
+ }
 
   $('.start').click(function () {
     var score = 0
@@ -25,6 +34,7 @@ $(document).ready(function () {
 
     const interval = setInterval(() => {
       var pos = position[Math.floor(Math.random() * position.length)]
+
       $('.worm').css({
         display: 'block',
         top: pos.top,
@@ -41,5 +51,8 @@ $(document).ready(function () {
       $('.worm').css('display', 'none')
       clearInterval(interval)
     }, 20000)
+
+    
   })
+
 })
