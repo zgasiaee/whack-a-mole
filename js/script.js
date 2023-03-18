@@ -10,14 +10,12 @@ $(document).ready(function () {
     { top: '21%', left: '74%' },
   ]
 
-  if(window.innerWidth < 500){
-
-    position.map(pos => {
+  if (window.innerWidth < 500) {
+    position.map((pos) => {
       pos.top = parseInt(pos.top) + 7 + '%'
       pos.left = parseInt(pos.left) - 10 + '%'
     })
-
- }
+  }
 
   $('.start').click(function () {
     var score = 0
@@ -34,13 +32,12 @@ $(document).ready(function () {
 
     const interval = setInterval(() => {
       var pos = position[Math.floor(Math.random() * position.length)]
-
       $('.worm').css({
         display: 'block',
         top: pos.top,
         left: pos.left,
       })
-    }, 600)
+    }, 580)
 
     setTimeout(() => {
       $('.start-container').css('display', 'flex')
@@ -51,8 +48,5 @@ $(document).ready(function () {
       $('.worm').css('display', 'none')
       clearInterval(interval)
     }, 20000)
-
-    
   })
-
 })
